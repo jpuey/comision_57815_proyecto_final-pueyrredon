@@ -5,6 +5,6 @@ urlpatterns = [
     path("", inicio, name="index"),
     path("medicos", medicos, name= "medicos"),
     path("pacientes", pacientes, name= "pacientes"),
-    path("osociales", osociales, name= "habitaciones"),
-    path("farmacias", farmacias, name= "medicamentos"),
+    path("osociales", osociales, name= "osociales"),
+    path("farmacias", farmacias, name= "farmacias"),
 ]

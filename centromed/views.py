@@ -4,17 +4,17 @@ from django.http import HttpResponse
 # Create your views here.
 
 def inicio(request):
-    return HttpResponse ("Este es el Inicio")
+    return render(request,"centromed/index.html" )
 
 def medicos(request):
-    return HttpResponse ("Esta es la vista de los medicos")
+    return render (request, "centromed/medicos.html")
 
 def pacientes (request):
-    return HttpResponse ("Esta es la vista de los pacientes")
+    return render(request, "centromed/pacientes.html")
 
 def osociales (request):
-    return HttpResponse ("Esta es la vista de las Obras Sociales")
+    return render (request, "centromed/osociales.html")
 
 def farmacias (request):
-    return HttpResponse ("Esta es la vista de la Farmacia")
+    return render (request, "centromed/farmacias.html")
 
