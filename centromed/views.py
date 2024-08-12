@@ -18,3 +18,6 @@ def osociales (request):
 def farmacias (request):
     return render (request, "centromed/farmacias.html")
 
+def abouts (request):
+    return render (request, "centromed/about.html")
+
