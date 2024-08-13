@@ -1,0 +1,20 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Buscar Medico{% endblock %}
+
+
+{% block mutable %}
+    <h1>Buscar Medico</h1>
+
+    {% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ mi_formulario.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+
+    </form>
+{% endblock main %}
+{% endblock %}
+    

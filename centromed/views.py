@@ -93,3 +93,22 @@ def obrasocialFormulario(request):
             miFormulario = ObrasocialFormulario()
 
     return render(request, "centromed/form-osociales.html", {"miFormulario": miFormulario})
+
+
+
+def busquedaEspecialidad(request):
+    if request.method == "POST":
+        mi_formulario = BuscaMedicoForm(request.POST) # Aqui me llega la informacion del html
+
+        if mi_formulario.is_valid():
+            informacion = mi_formulario.cleaned_data
+            
+            
+            medicos = Medico.objects.filter(especialidad__icontains=informacion["especialidad"])
+
+            return render(request, "centromed/mostrar-especialidad.html", {"medicos": medicos})
+    else:
+        mi_formulario = BuscaMedicoForm()
+
+    return render(request, "centromed/busqueda-especialidad.html", {"mi_formulario": mi_formulario})
+

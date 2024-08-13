@@ -26,3 +26,7 @@ class FarmaciaFormulario (forms.Form):
     medicamento= forms.CharField(max_length= 20)
     droga= forms.CharField (max_length= 20)
     receta= forms.BooleanField(required=False)
+
+
+class BuscaMedicoForm(forms.Form):
+    especialidad = forms.CharField()

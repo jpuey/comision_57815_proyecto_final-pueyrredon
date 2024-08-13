@@ -1,0 +1,18 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Mostrar Medico{% endblock %}
+
+
+{% block mutable %}
+    <h1>Medicos por Especialidad</h1>
+
+    {% block main %}
+
+    
+    {% for medicos in medico %}
+        <li>Medico: {{ medicos.nombre }} | Especialidad: {{ medicos.especialidad }}</li>
+    {% endfor %}
+    
+    
+    {% endblock main %}
+{% endblock %}
