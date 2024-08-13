@@ -57,3 +57,21 @@ def pacienteFormulario(request):
             miFormulario = PacienteFormulario()
 
     return render(request, "centromed/form-paciente.html", {"miFormulario": miFormulario})
+
+
+def farmaciaFormulario(request):
+
+    if request.method == "POST":
+
+            miFormulario = FarmaciaFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+
+            if miFormulario.is_valid():
+                informacion = miFormulario.cleaned_data
+                farmacia = Farmacia(medicamento=informacion["medicamento"], droga =informacion["droga"], receta=informacion["receta"])
+                farmacia.save()
+                return render(request, "centromed/farmacias.html")
+    else:
+            miFormulario = FarmaciaFormulario()
+
+    return render(request, "centromed/form-farmacia.html", {"miFormulario": miFormulario})
