@@ -9,3 +9,13 @@ urlpatterns = [
     path("farmacias", farmacias, name= "farmacias"),
     path("about", abouts, name= "about")
 ]
+
+
+formularios =[
+
+
+
+
+]
+
+urlpatterns += formularios
