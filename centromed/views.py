@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from centromed.forms import *
+from centromed.models import *
 
 # Create your views here.
 
@@ -21,3 +23,20 @@ def farmacias (request):
 def abouts (request):
     return render (request, "centromed/about.html")
 
+
+def medicoFormulario(request):
+
+    if request.method == "POST":
+
+            miFormulario = MedicoFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+
+            if miFormulario.is_valid():
+                informacion = miFormulario.cleaned_data
+                medico = Medico(nombre=informacion["nombre"], apellido =informacion["apellido"], matricula=informacion["matricula"], especialidad=informacion["especialidad"], email=informacion["email"] )
+                medico.save()
+                return render(request, "centromed/medicos.html")
+    else:
+            miFormulario = MedicoFormulario()
+
+    return render(request, "centromed/form-medico.html", {"miFormulario": miFormulario})

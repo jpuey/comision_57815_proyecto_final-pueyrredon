@@ -7,12 +7,13 @@ urlpatterns = [
     path("pacientes", pacientes, name= "pacientes"),
     path("osociales", osociales, name= "osociales"),
     path("farmacias", farmacias, name= "farmacias"),
-    path("about", abouts, name= "about")
+    path("about", abouts, name= "about"),
+    
 ]
 
 
 formularios =[
-
+    path("form-medico", medicoFormulario, name="form-medico")
 
 
 
