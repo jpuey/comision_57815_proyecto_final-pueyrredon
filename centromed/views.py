@@ -40,3 +40,20 @@ def medicoFormulario(request):
             miFormulario = MedicoFormulario()
 
     return render(request, "centromed/form-medico.html", {"miFormulario": miFormulario})
+
+def pacienteFormulario(request):
+
+    if request.method == "POST":
+
+            miFormulario = PacienteFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+
+            if miFormulario.is_valid():
+                informacion = miFormulario.cleaned_data
+                paciente = Paciente(nombre=informacion["nombre"], apellido =informacion["apellido"], ident=informacion["ident"], habitacion=informacion["habitacion"], email=informacion["email"] )
+                paciente.save()
+                return render(request, "centromed/pacientes.html")
+    else:
+            miFormulario = PacienteFormulario()
+
+    return render(request, "centromed/form-paciente.html", {"miFormulario": miFormulario})

@@ -13,7 +13,8 @@ urlpatterns = [
 
 
 formularios =[
-    path("form-medico", medicoFormulario, name="form-medico")
+    path("form-medico", medicoFormulario, name="form-medico"),
+    path("form-paciente", pacienteFormulario, name="form-paciente")
 
 
 
