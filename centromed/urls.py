@@ -16,6 +16,7 @@ formularios =[
     path("form-medico", medicoFormulario, name="form-medico"),
     path("form-paciente", pacienteFormulario, name="form-paciente"),
     path("form-farmacia", farmaciaFormulario, name="form-farmacia"),
+    path("form-osociales", obrasocialFormulario, name="form-osociales"),
 
 
 

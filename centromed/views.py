@@ -75,3 +75,21 @@ def farmaciaFormulario(request):
             miFormulario = FarmaciaFormulario()
 
     return render(request, "centromed/form-farmacia.html", {"miFormulario": miFormulario})
+
+
+def obrasocialFormulario(request):
+
+    if request.method == "POST":
+
+            miFormulario = ObrasocialFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+
+            if miFormulario.is_valid():
+                informacion = miFormulario.cleaned_data
+                osocial= Obrasocial(nombre=informacion["nombre"], plan=informacion["plan"], cobertura=informacion["cobertura"])
+                osocial.save()
+                return render(request, "centromed/osociales.html")
+    else:
+            miFormulario = ObrasocialFormulario()
+
+    return render(request, "centromed/form-osociales.html", {"miFormulario": miFormulario})
