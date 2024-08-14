@@ -104,7 +104,7 @@ def busquedaEspecialidad(request):
             informacion = mi_formulario.cleaned_data
             
             
-            medicos = Medico.objects.filter(especialidad__icontains=informacion["especialidad"])
+            medicos = Medico.objects.filter(nombre__icontains=informacion["especialidad"])
 
             return render(request, "centromed/mostrar-especialidad.html", {"medicos": medicos})
     else:
