@@ -129,6 +129,12 @@ class MedicoListView(ListView):
 
 #Pacientes
 
+class PacienteListView(ListView):
+    model= Paciente
+    context_object_name = "pacientes"
+    template_name = "centromed/paciente_lista.html"
+
+
 #Obras Sociales
 
 #Farmacia
