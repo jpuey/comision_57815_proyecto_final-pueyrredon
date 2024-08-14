@@ -137,4 +137,9 @@ class PacienteListView(ListView):
 
 #Obras Sociales
 
+class ObrasocialListView(ListView):
+    model= Obrasocial
+    context_object_name = "obras_sociales"
+    template_name = "centromed/osociales_lista.html"
+
 #Farmacia
