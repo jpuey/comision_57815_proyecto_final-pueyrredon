@@ -1,5 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+
+
 from centromed.forms import *
 from centromed.models import *
 
@@ -104,7 +110,7 @@ def busquedaEspecialidad(request):
             informacion = mi_formulario.cleaned_data
             
             
-            medicos = Medico.objects.filter(nombre__icontains=informacion["especialidad"])
+            medicos = Medico.objects.filter(especialidad__icontains=informacion["especialidad"])
 
             return render(request, "centromed/mostrar-especialidad.html", {"medicos": medicos})
     else:
@@ -112,3 +118,11 @@ def busquedaEspecialidad(request):
 
     return render(request, "centromed/busqueda-especialidad.html", {"mi_formulario": mi_formulario})
 
+
+#Medicos
+
+#Pacientes
+
+#Obras Sociales
+
+#Farmacia
