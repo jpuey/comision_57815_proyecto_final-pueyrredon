@@ -121,6 +121,12 @@ def busquedaEspecialidad(request):
 
 #Medicos
 
+class MedicoListView(ListView):
+    model = Medico
+    context_object_name = "medicos"
+    template_name = "centromed/medico_lista.html"
+
+
 #Pacientes
 
 #Obras Sociales

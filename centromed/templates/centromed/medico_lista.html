@@ -1,0 +1,17 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Personal{% endblock %}
+
+
+{% block mutable %}
+    <h2>Nuestro Personal</h2>
+
+    <h3>Aca encontraras listado Nuestro Staff</h3>
+
+    {% for medico in medicos %}
+        <p>Medico: {{medico.nombre}} | Especialidad: {{medico.especialidad}}</p>
+    {% endfor %}
+
+
+{% endblock %}
+    

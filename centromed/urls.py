@@ -18,6 +18,7 @@ formularios =[
     path("form-farmacia", farmaciaFormulario, name="form-farmacia"),
     path("form-osociales", obrasocialFormulario, name="form-osociales"),
     path("busqueda-especialidad",busquedaEspecialidad, name="busqueda-especialidad"),
+    path("medico_lista", MedicoListView.as_view(), name= "medico_lista")
 
 
 
