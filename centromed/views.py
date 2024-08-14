@@ -143,3 +143,8 @@ class ObrasocialListView(ListView):
     template_name = "centromed/osociales_lista.html"
 
 #Farmacia
+
+class FarmaciaListView(ListView):
+    model= Farmacia
+    context_object_name = "farmacias"
+    template_name = "centromed/farmacia_lista.html"

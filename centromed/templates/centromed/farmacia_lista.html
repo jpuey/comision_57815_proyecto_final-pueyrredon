@@ -1,0 +1,17 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Farmacia{% endblock %}
+
+
+{% block mutable %}
+    <h2>Nuestros Meidicamentos</h2>
+
+    <h3>Aca encontraras listado Nuestros Meciamentos</h3>
+
+    {% for farmacia in farmacias %}
+        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}}</p>
+    {% endfor %}
+
+
+{% endblock %}
+    
