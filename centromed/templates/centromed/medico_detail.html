@@ -1,0 +1,19 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Eliminar Medicos{% endblock %}
+
+
+{% block mutable %}
+    <h1>PORTAL PROFESIONALES</h1>
+
+    <h2>Informacion de nuestros Medicos</h2>
+    <p>Nombre del Profesional: <i>{{medico.nombre}}</i></p>
+    <p>Apellido del Profesional: <i>{{medico.apellido}}</i></p>
+    <p>Especialidad del Profesional: <i>{{medico.especialidad}}</i></p>
+    <p>
+        <a href="{% url 'medico_lista' %}">Regresar</a>
+    </p>
+
+
+
+{% endblock %}
