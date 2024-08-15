@@ -4,10 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login, logout, authenticate
-
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from centromed.forms import *
 from centromed.models import *
@@ -124,30 +121,30 @@ def busquedaEspecialidad(request):
 
 #Medicos
 
-class MedicoListView(ListView):
+class MedicoListView(LoginRequiredMixin, ListView):
     model = Medico
     context_object_name = "medicos"
     template_name = "centromed/medico_lista.html"
 
 
-class MedicoCreateView(CreateView):
+class MedicoCreateView(LoginRequiredMixin, CreateView):
     model= Medico
     template_name= "centromed/medico_crear.html"
     success_url= reverse_lazy("medico_lista")
     fields= ["nombre","apellido","especialidad", "matricula", "email"]
 
-class MedicoUpdateView(UpdateView):
+class MedicoUpdateView(LoginRequiredMixin, UpdateView):
     model= Medico
     template_name= "centromed/medico_update.html"
     success_url= reverse_lazy("medico_lista")
     fields= ["nombre","apellido","especialidad", "matricula", "email"]
 
-class MedicoDeleteView(DeleteView):
+class MedicoDeleteView(LoginRequiredMixin, DeleteView):
     model= Medico
     template_name= "centromed/medico_delete.html"
     success_url= reverse_lazy("medico_lista")
 
-class MedicoDetailView(DetailView):
+class MedicoDetailView(LoginRequiredMixin, DetailView):
     model= Medico
     template_name= "centromed/medico_detail.html"
 
@@ -155,88 +152,88 @@ class MedicoDetailView(DetailView):
         
 #Pacientes
 
-class PacienteListView(ListView):
+class PacienteListView(LoginRequiredMixin, ListView):
     model= Paciente
     context_object_name = "pacientes"
     template_name = "centromed/paciente_lista.html"
 
 
-class PacienteCreateView(CreateView):
+class PacienteCreateView(LoginRequiredMixin, CreateView):
     model= Paciente
     template_name= "centromed/paciente_crear.html"
     success_url= reverse_lazy("paciente_lista")
     fields= ["nombre","apellido","ident", "habitacion", "email"]
 
-class PacienteUpdateView(UpdateView):
+class PacienteUpdateView(LoginRequiredMixin, UpdateView):
     model= Paciente
     template_name= "centromed/paciente_update.html"
     success_url= reverse_lazy("paciente_lista")
     fields= ["nombre","apellido","ident", "habitacion", "email"]
 
-class PacienteDeleteView(DeleteView):
+class PacienteDeleteView(LoginRequiredMixin, DeleteView):
     model= Paciente
     template_name= "centromed/paciente_delete.html"
     success_url= reverse_lazy("paciente_lista")
 
-class PacienteDetailView(DetailView):
+class PacienteDetailView(LoginRequiredMixin, DetailView):
     model= Paciente
     template_name= "centromed/paciente_detail.html"
 
 #Obras Sociales
 
-class ObrasocialListView(ListView):
+class ObrasocialListView(LoginRequiredMixin, ListView):
     model= Obrasocial
     context_object_name = "obras_sociales"
     template_name = "centromed/osociales_lista.html"
 
 
-class ObrasocialCreateView(CreateView):
+class ObrasocialCreateView(LoginRequiredMixin, CreateView):
     model= Obrasocial
     template_name= "centromed/osociales_crear.html"
     success_url= reverse_lazy("osociales_lista")
     fields= ["nombre","plan","cobertura"]
 
-class ObrasocialUpdateView(UpdateView):
+class ObrasocialUpdateView(LoginRequiredMixin, UpdateView):
     model= Obrasocial
     template_name= "centromed/osociales_update.html"
     success_url= reverse_lazy("osociales_lista")
     fields= ["nombre","plan","cobertura"]
 
-class ObrasocialDeleteView(DeleteView):
+class ObrasocialDeleteView(LoginRequiredMixin, DeleteView):
     model= Obrasocial
     template_name= "centromed/osociales_delete.html"
     success_url= reverse_lazy("osociales_lista")
 
-class ObrasocialDetailView(DetailView):
+class ObrasocialDetailView(LoginRequiredMixin, DetailView):
     model= Obrasocial
     template_name= "centromed/osociales_detail.html"
     
 
 #Farmacia
 
-class FarmaciaListView(ListView):
+class FarmaciaListView(LoginRequiredMixin, ListView):
     model= Farmacia
     context_object_name = "farmacias"
     template_name = "centromed/farmacia_lista.html"
 
 
-class FarmaciaCreateView(CreateView):
+class FarmaciaCreateView(LoginRequiredMixin, CreateView):
     model= Farmacia
     template_name= "centromed/farmacia_crear.html"
     success_url= reverse_lazy("farmacia_lista")
     fields= ["medicamento","droga","receta"]
 
-class FarmaciaUpdateView(UpdateView):
+class FarmaciaUpdateView(LoginRequiredMixin, UpdateView):
     model= Farmacia
     template_name= "centromed/farmacia_update.html"
     success_url= reverse_lazy("farmacia_lista")
     fields= ["medicamento","droga","receta"]
 
-class FarmaciaDeleteView(DeleteView):
+class FarmaciaDeleteView(LoginRequiredMixin, DeleteView):
     model= Farmacia
     template_name= "centromed/farmacia_delete.html"
     success_url= reverse_lazy("farmacia_lista")
 
-class FarmaciaDetailView(DetailView):
+class FarmaciaDetailView(LoginRequiredMixin, DetailView):
     model= Farmacia
     template_name= "centromed/farmacia_detail.html"
