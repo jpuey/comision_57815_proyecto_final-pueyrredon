@@ -176,6 +176,10 @@ class PacienteDeleteView(DeleteView):
     template_name= "centromed/paciente_delete.html"
     success_url= reverse_lazy("paciente_lista")
 
+class PacienteDetailView(DetailView):
+    model= Paciente
+    template_name= "centromed/paciente_detail.html"
+
 #Obras Sociales
 
 class ObrasocialListView(ListView):

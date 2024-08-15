@@ -11,7 +11,7 @@
 
 
     {% for paciente in pacientes %}
-        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}} <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'paciente_delete' paciente.pk %}" role="button">Eliminar</a></p>
+        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}} <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'paciente_delete' paciente.pk %}" role="button">Eliminar</a> <a class="btn btn-warning" href="{% url 'paciente_detail' paciente.pk %}" role="button">Mas Informacion</a> </p>
     {% endfor %}
 
 

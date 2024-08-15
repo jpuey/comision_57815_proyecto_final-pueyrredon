@@ -1,0 +1,19 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Detalles Pacientes{% endblock %}
+
+
+{% block mutable %}
+    <h1>PORTAL PACIENTES</h1>
+
+    <h2>Informacion de nuestros Medicos</h2>
+    <p>Nombre del Paciente: <i>{{paciente.nombre}}</i></p>
+    <p>Apellido del Paciente: <i>{{paciente.apellido}}</i></p>
+    <p>Identificacion del Paciente: <i>{{paciente.ident}}</i></p>
+    <p>
+        <a href="{% url 'paciente_lista' %}">Regresar</a>
+    </p>
+
+
+
+{% endblock %}
