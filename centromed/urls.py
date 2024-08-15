@@ -25,6 +25,7 @@ formularios =[
 
     path("paciente_lista", PacienteListView.as_view(), name= "paciente_lista"),
     path("paciente_crear", PacienteCreateView.as_view(), name= "paciente_crear"),
+    path("paciente_update/<pk>/", PacienteUpdateView.as_view(), name= "paciente_update"),
 
     path("osociales_lista", ObrasocialListView.as_view(), name= "osociales_lista"),
     path("osociales_crear", ObrasocialCreateView.as_view(), name= "osociales_crear"),

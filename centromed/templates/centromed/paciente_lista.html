@@ -9,7 +9,7 @@
     <h3>Aca encontraras listado nuestros Pacientes</h3>
 
     {% for paciente in pacientes %}
-        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}}</p>
+        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}} <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a></p>
     {% endfor %}
 
 

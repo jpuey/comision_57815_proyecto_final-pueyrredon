@@ -141,10 +141,6 @@ class MedicoUpdateView(UpdateView):
     fields= ["nombre","apellido","especialidad", "matricula", "email"]
 
         
-
-
-
-
 #Pacientes
 
 class PacienteListView(ListView):
@@ -156,6 +152,12 @@ class PacienteListView(ListView):
 class PacienteCreateView(CreateView):
     model= Paciente
     template_name= "centromed/paciente_crear.html"
+    success_url= reverse_lazy("paciente_lista")
+    fields= ["nombre","apellido","ident", "habitacion", "email"]
+
+class PacienteUpdateView(UpdateView):
+    model= Paciente
+    template_name= "centromed/paciente_update.html"
     success_url= reverse_lazy("paciente_lista")
     fields= ["nombre","apellido","ident", "habitacion", "email"]
 
