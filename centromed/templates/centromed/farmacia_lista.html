@@ -7,9 +7,10 @@
     <h1>PORTAL FARMACIA</h1>
 
     <h2>Aca encontraras listado nuestros Meciamentos</h2>
+    <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN MEDICAMENTO: <a class="btn btn-primary" href="{% url 'farmacia_crear'%}" role="button">Agregar</a></p>
 
     {% for farmacia in farmacias %}
-        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}} <a class="btn btn-primary" href="{% url 'farmacia_update' farmacia.pk %}" role="button">Editar</a></p>
+        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}} <a class="btn btn-primary" href="{% url 'farmacia_update' farmacia.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'farmacia_delete' farmacia.pk %}" role="button">Eliminar</a></p>
     {% endfor %}
 
 

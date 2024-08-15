@@ -1,0 +1,23 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Eliminar Medicamentos{% endblock %}
+
+
+{% block mutable %}
+    <h1>PORTAL Farmacia</h1>
+
+
+    <h2>Elimine los datos de un Medicamento</h2>
+
+{% block main%}
+{% if miFormulario.errors %}
+<p>Estan mal los datos, Revisar</p>
+{% endif %}
+
+<form action="" Method=POST>
+        {% csrf_token %}
+        <p>¿Esta seguro que desea eliminar el dato?</p>
+        <input type="submit" value="Borrar">
+</form>
+{%endblock main %}
+{% endblock %}

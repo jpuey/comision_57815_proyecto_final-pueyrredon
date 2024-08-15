@@ -217,3 +217,8 @@ class FarmaciaUpdateView(UpdateView):
     template_name= "centromed/farmacia_update.html"
     success_url= reverse_lazy("farmacia_lista")
     fields= ["medicamento","droga","receta"]
+
+class FarmaciaDeleteView(DeleteView):
+    model= Farmacia
+    template_name= "centromed/farmacia_delete.html"
+    success_url= reverse_lazy("farmacia_lista")
