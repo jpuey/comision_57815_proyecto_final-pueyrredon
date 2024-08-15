@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 
 
@@ -125,6 +126,13 @@ class MedicoListView(ListView):
     model = Medico
     context_object_name = "medicos"
     template_name = "centromed/medico_lista.html"
+
+
+class MedicoCreateView(CreateView):
+    model= Medico
+    template_name= "centromed/medico_crear.html"
+    success_url= reverse_lazy("medico_lista")
+    fields= ["nombre","apellido","especialidad", "matricula", "email"]
 
 
 #Pacientes
