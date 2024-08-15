@@ -156,6 +156,13 @@ class ObrasocialListView(ListView):
     context_object_name = "obras_sociales"
     template_name = "centromed/osociales_lista.html"
 
+
+class ObrasocialCreateView(CreateView):
+    model= Obrasocial
+    template_name= "centromed/osociales_crear.html"
+    success_url= reverse_lazy("osociales_lista")
+    fields= ["nombre","plan","cobertura"]
+
 #Farmacia
 
 class FarmaciaListView(ListView):

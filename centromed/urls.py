@@ -23,10 +23,14 @@ formularios =[
     path("paciente_lista", PacienteListView.as_view(), name= "paciente_lista"),
     path("paciente_crear", PacienteCreateView.as_view(), name= "paciente_crear"),
     path("osociales_lista", ObrasocialListView.as_view(), name= "osociales_lista"),
+    path("osociales_crear", ObrasocialCreateView.as_view(), name= "osociales_crear"),
     path("farmacia_lista", FarmaciaListView.as_view(), name= "farmacia_lista"),
 
 
 
 ]
+
+
+
 
 urlpatterns += formularios
