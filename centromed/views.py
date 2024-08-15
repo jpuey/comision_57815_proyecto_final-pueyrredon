@@ -140,6 +140,11 @@ class MedicoUpdateView(UpdateView):
     success_url= reverse_lazy("medico_lista")
     fields= ["nombre","apellido","especialidad", "matricula", "email"]
 
+class MedicoDeleteView(DeleteView):
+    model= Medico
+    template_name= "centromed/medico_delete.html"
+    success_url= reverse_lazy("medico_lista")
+
         
 #Pacientes
 
@@ -160,6 +165,11 @@ class PacienteUpdateView(UpdateView):
     template_name= "centromed/paciente_update.html"
     success_url= reverse_lazy("paciente_lista")
     fields= ["nombre","apellido","ident", "habitacion", "email"]
+
+class PacienteDeleteView(DeleteView):
+    model= Paciente
+    template_name= "centromed/paciente_delete.html"
+    success_url= reverse_lazy("paciente_lista")
 
 #Obras Sociales
 

@@ -7,9 +7,10 @@
     <h2>PORTAL PROFESIONALES</h2>
 
     <h3>Aca encontraras listado Nuestro Staff</h3>
+    <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN MEDICO: <a class="btn btn-primary" href="{% url 'medico_crear'%}" role="button">Agregar</a></p>
 
     {% for medico in medicos %}
-        <p>Medico: {{medico.nombre}} | Apellido: {{medico.apellido}} | Especialidad: {{medico.especialidad}} <a class="btn btn-primary" href="{% url 'medico_update' medico.pk %}" role="button">Editar</a></p>
+        <p>Medico: {{medico.nombre}} | Apellido: {{medico.apellido}} | Especialidad: {{medico.especialidad}} <a class="btn btn-primary" href="{% url 'medico_update' medico.pk %}" role="button">Editar</a>  <a class="btn btn-danger" href="{% url 'medico_delete' medico.pk %}" role="button">Eliminar</a></p>
     {% endfor %}
 
 

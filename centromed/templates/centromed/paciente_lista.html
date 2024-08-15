@@ -7,9 +7,11 @@
     <h2>PORTAL PACIENTES</h2>
 
     <h3>Aca encontraras listado nuestros Pacientes</h3>
+    <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN PACIENTE: <a class="btn btn-primary" href="{% url 'paciente_crear'%}" role="button">Agregar</a></p>
+
 
     {% for paciente in pacientes %}
-        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}} <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a></p>
+        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}} <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'paciente_delete' paciente.pk %}" role="button">Eliminar</a></p>
     {% endfor %}
 
 
