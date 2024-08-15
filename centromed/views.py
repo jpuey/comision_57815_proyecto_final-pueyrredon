@@ -169,3 +169,10 @@ class FarmaciaListView(ListView):
     model= Farmacia
     context_object_name = "farmacias"
     template_name = "centromed/farmacia_lista.html"
+
+
+class FarmaciaCreateView(CreateView):
+    model= Farmacia
+    template_name= "centromed/farmacia_crear.html"
+    success_url= reverse_lazy("farmacia_lista")
+    fields= ["medicamento","droga","receta"]
