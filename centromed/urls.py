@@ -32,6 +32,7 @@ formularios =[
     path("osociales_lista", ObrasocialListView.as_view(), name= "osociales_lista"),
     path("osociales_crear", ObrasocialCreateView.as_view(), name= "osociales_crear"),
     path("osociales_update/<pk>/", ObrasocialUpdateView.as_view(), name= "osociales_update"),
+    path("osociales_delete/<pk>/", ObrasocialDeleteView.as_view(), name= "osociales_delete"),
 
     path("farmacia_lista", FarmaciaListView.as_view(), name= "farmacia_lista"),
     path("farmacia_crear", FarmaciaCreateView.as_view(), name= "farmacia_crear"),
