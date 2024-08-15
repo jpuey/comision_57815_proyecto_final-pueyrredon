@@ -194,3 +194,9 @@ class FarmaciaCreateView(CreateView):
     template_name= "centromed/farmacia_crear.html"
     success_url= reverse_lazy("farmacia_lista")
     fields= ["medicamento","droga","receta"]
+
+class FarmaciaUpdateView(UpdateView):
+    model= Farmacia
+    template_name= "centromed/farmacia_update.html"
+    success_url= reverse_lazy("farmacia_lista")
+    fields= ["medicamento","droga","receta"]

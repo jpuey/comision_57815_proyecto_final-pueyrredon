@@ -9,7 +9,7 @@
     <h2>Aca encontraras listado nuestros Meciamentos</h2>
 
     {% for farmacia in farmacias %}
-        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}}</p>
+        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}} <a class="btn btn-primary" href="{% url 'farmacia_update' farmacia.pk %}" role="button">Editar</a></p>
     {% endfor %}
 
 
