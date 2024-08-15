@@ -9,7 +9,7 @@
     <h2>Aca encontraras listadas nuestras Obras Sociales</h2>
 
     {% for obrasocial in obras_sociales %}
-        <p>Obra Social: {{obrasocial.nombre}} | Plan: {{obrasocial.plan}}</p>
+        <p>Obra Social: {{obrasocial.nombre}} | Plan: {{obrasocial.plan}} <a class="btn btn-primary" href="{% url 'osociales_update' obrasocial.pk %}" role="button">Editar</a></p>
     {% endfor %}
 
 

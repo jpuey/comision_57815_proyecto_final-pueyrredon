@@ -175,6 +175,12 @@ class ObrasocialCreateView(CreateView):
     success_url= reverse_lazy("osociales_lista")
     fields= ["nombre","plan","cobertura"]
 
+class ObrasocialUpdateView(UpdateView):
+    model= Obrasocial
+    template_name= "centromed/osociales_update.html"
+    success_url= reverse_lazy("osociales_lista")
+    fields= ["nombre","plan","cobertura"]    
+
 #Farmacia
 
 class FarmaciaListView(ListView):

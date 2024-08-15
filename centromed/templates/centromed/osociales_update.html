@@ -1,0 +1,25 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | INSERTAR OBRA SOCIAL{% endblock %}
+
+
+{% block mutable %}
+    <h1>PORTAL OBRAS SOCIALES</h1>
+
+
+    <h2>Agregue los datos de una Obra Social</h2>
+
+{% block main%}
+{% if miFormulario.errors %}
+<p>Estan mal los datos, Revisar</p>
+{% endif %}
+
+<form action="" Method=POST>
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="enviar">
+</form>
+{%endblock main %}
+{% endblock %}
