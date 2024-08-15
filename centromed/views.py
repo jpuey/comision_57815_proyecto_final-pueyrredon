@@ -143,6 +143,12 @@ class PacienteListView(ListView):
     template_name = "centromed/paciente_lista.html"
 
 
+class PacienteCreateView(CreateView):
+    model= Paciente
+    template_name= "centromed/paciente_crear.html"
+    success_url= reverse_lazy("paciente_lista")
+    fields= ["nombre","apellido","ident", "habitacion", "email"]
+
 #Obras Sociales
 
 class ObrasocialListView(ListView):
