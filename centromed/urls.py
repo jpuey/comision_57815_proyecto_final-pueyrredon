@@ -19,8 +19,9 @@ formularios =[
     path("form-osociales", obrasocialFormulario, name="form-osociales"),
     path("busqueda-especialidad",busquedaEspecialidad, name="busqueda-especialidad"),
 
-    path("medico_lista", MedicoListView.as_view(), name= "medico_lista"),
-    path("medico_crear", MedicoCreateView.as_view(), name= "medico_crear"),
+    path("medico_lista/", MedicoListView.as_view(), name= "medico_lista"),
+    path("medico_crear/", MedicoCreateView.as_view(), name= "medico_crear"),
+    path("medico_update/<pk>/", MedicoUpdateView.as_view(), name= "medico_update"),
 
     path("paciente_lista", PacienteListView.as_view(), name= "paciente_lista"),
     path("paciente_crear", PacienteCreateView.as_view(), name= "paciente_crear"),

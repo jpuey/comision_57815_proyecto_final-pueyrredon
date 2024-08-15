@@ -9,7 +9,7 @@
     <h3>Aca encontraras listado Nuestro Staff</h3>
 
     {% for medico in medicos %}
-        <p>Medico: {{medico.nombre}} | Apellido: {{medico.apellido}} | Especialidad: {{medico.especialidad}}</p>
+        <p>Medico: {{medico.nombre}} | Apellido: {{medico.apellido}} | Especialidad: {{medico.especialidad}} <a class="btn btn-primary" href="{% url 'medico_update' medico.pk %}" role="button">Editar</a></p>
     {% endfor %}
 
 
