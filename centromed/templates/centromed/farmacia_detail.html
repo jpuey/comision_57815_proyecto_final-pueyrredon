@@ -1,0 +1,19 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Detalles Farmacia{% endblock %}
+
+
+{% block mutable %}
+    <h1>PORTAL OBRAS Farmacia</h1>
+
+    <h2>Informacion de nuestros Medicamentos</h2>
+    <p>Nombre del Medicamento: <i>{{farmacia.medicamento}}</i></p>
+    <p>Droga del Medicamento: <i>{{farmacia.droga}}</i></p>
+    <p>Requiere Receta: <i>{{farmacia.receta}}</i></p>
+    <p>
+        <a href="{% url 'farmacia_lista' %}">Regresar</a>
+    </p>
+
+
+
+{% endblock %}

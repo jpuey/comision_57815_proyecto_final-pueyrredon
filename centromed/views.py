@@ -204,7 +204,10 @@ class ObrasocialDeleteView(DeleteView):
     model= Obrasocial
     template_name= "centromed/osociales_delete.html"
     success_url= reverse_lazy("osociales_lista")
-    fields= ["nombre","plan","cobertura"]
+
+class ObrasocialDetailView(DetailView):
+    model= Obrasocial
+    template_name= "centromed/osociales_detail.html"
     
 
 #Farmacia
@@ -231,3 +234,7 @@ class FarmaciaDeleteView(DeleteView):
     model= Farmacia
     template_name= "centromed/farmacia_delete.html"
     success_url= reverse_lazy("farmacia_lista")
+
+class FarmaciaDetailView(DetailView):
+    model= Farmacia
+    template_name= "centromed/farmacia_detail.html"

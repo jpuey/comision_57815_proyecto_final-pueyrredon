@@ -1,0 +1,19 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Detalles Obras Sociales{% endblock %}
+
+
+{% block mutable %}
+    <h1>PORTAL OBRAS SOCIALES</h1>
+
+    <h2>Informacion de nuestros Medicos</h2>
+    <p>Nombre de la Obra Social: <i>{{obrasocial.nombre}}</i></p>
+    <p>Plan de la Obra Social: <i>{{obrasocial.plan}}</i></p>
+    <p>Cobertura de la Obra Social: <i>{{obrasocial.cobertura}}</i></p>
+    <p>
+        <a href="{% url 'osociales_lista' %}">Regresar</a>
+    </p>
+
+
+
+{% endblock %}
