@@ -9,16 +9,15 @@
 
     
     <div class="d-flex flex-column">
+        <h1> Editar Contraseña</h1>
 
         <form action="" method="POST">
             {% csrf_token %}
             
             <table>
-                {{form.as_table}}
+                {{form}}
             </table>
-            <a class="btn btn-primary" href="{% url 'CambiarContraseña' %}">Cambiar Contraseña</a>
-            <input type="submit" value="Cambiar Datos">
-            
+            <input type="submit" value="Cambiar">
 
         </form>
 
