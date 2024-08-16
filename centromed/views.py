@@ -103,7 +103,7 @@ def obrasocialFormulario(request):
     return render(request, "centromed/form-osociales.html", {"miFormulario": miFormulario})
 
 
-
+@login_required
 def busquedaEspecialidad(request):
     if request.method == "POST":
         mi_formulario = BuscaMedicoForm(request.POST) # Aqui me llega la informacion del html
