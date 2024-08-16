@@ -15,18 +15,6 @@ from centromed.models import *
 def inicio(request):
     return render(request,"centromed/index.html" )
 
-def medicos(request):
-    return render (request, "centromed/medicos.html")
-
-def pacientes (request):
-    return render(request, "centromed/pacientes.html")
-
-def osociales (request):
-    return render (request, "centromed/osociales.html")
-
-def farmacias (request):
-    return render (request, "centromed/farmacias.html")
-
 @login_required
 def abouts (request):
     return render (request, "centromed/about.html")
