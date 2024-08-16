@@ -1,0 +1,26 @@
+{% extends 'centromed/base.html' %}
+
+{% block titulo %}Centro Medico | Editar Pefil{% endblock %}
+
+
+{% block mutable %}
+
+<div class="d-flex justify-content-center">
+
+    
+    <div class="d-flex flex-column">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" value="Actualizar">
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
