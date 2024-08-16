@@ -37,8 +37,6 @@ formularios =[
     path("farmacia_delete/<pk>/", FarmaciaDeleteView.as_view(), name= "farmacia_delete"),
     path("farmacia_detail/<pk>/", FarmaciaDetailView.as_view(), name= "farmacia_detail"),
 
-
-
 ]
 
 
