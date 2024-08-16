@@ -1,5 +1,7 @@
 {% extends 'centromed/base.html' %}
 
+{% load static %}
+
 {% block titulo %}Centro Medico | Farmacia{% endblock %}
 
 
@@ -7,12 +9,26 @@
     <h1>PORTAL FARMACIA</h1>
 
     <h2>Aca encontraras listado nuestros Meciamentos</h2>
-    <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN MEDICAMENTO: <a class="btn btn-primary" href="{% url 'farmacia_crear'%}" role="button">Agregar</a></p>
+    {% if request.user.is_superuser %}
+        <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN MEDICAMENTO: <a class="btn btn-primary" href="{% url 'farmacia_crear'%}" role="button">AGREGAR MEDICAMENTO</a></p>
+    {% endif %}
 
     {% for farmacia in farmacias %}
-        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}} <a class="btn btn-primary" href="{% url 'farmacia_update' farmacia.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'farmacia_delete' farmacia.pk %}" role="button">Eliminar</a> <a class="btn btn-warning" href="{% url 'farmacia_detail' farmacia.pk %}" role="button">Mas Informacion</a> </p>
+    <div class="card"  style="width: 18rem;">
+        <img src="{% static 'centromed/assets/img/portfolio/medicamento.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Medicamentos</h5>
+        <p>Medicamento: {{farmacia.medicamento}} | Droga: {{farmacia.droga}} </p>
+        {% if request.user.is_superuser %}
+            <a class="btn btn-primary" href="{% url 'farmacia_update' farmacia.pk %}" role="button">Editar</a> 
+            <a class="btn btn-danger" href="{% url 'farmacia_delete' farmacia.pk %}" role="button">Eliminar</a>
+            <a class="btn btn-warning" href="{% url 'farmacia_detail' farmacia.pk %}" role="button">Mas Informacion</a>
+        {% else %}
+            <a class="btn btn-warning" href="{% url 'medico_detail' medico.pk %}" role="button">Mas Informacion</a> </a>
+        {% endif %}
+        </div>
+    </div>
     {% endfor %}
-
 
 {% endblock %}
     
