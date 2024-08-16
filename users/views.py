@@ -7,6 +7,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 
 from users.forms import *
+from users.models import Avatar
 
 
 # Create your views here.
@@ -58,8 +59,12 @@ def editar_perfil (request):
         mi_formulario= UserEditForm(request.POST, request.FILES, instance=usuario)
         if mi_formulario.is_valid():
             if mi_formulario.cleaned_data.get('imagen'):
-                usuario.avatar.imagen =  mi_formulario.cleaned_data.get('imagen')
-                usuario.avatar.save()
+                if Avatar.objects.filter(user=usuario).exists():
+                    usuario.avatar.imagen =  mi_formulario.cleaned_data.get('imagen')
+                    usuario.avatar.save()
+                else:
+                    image= Avatar(user=usuario, imagen=mi_formulario.cleaned_data.get('imagen'))
+                    image.save()
 
 
             mi_formulario.save()
