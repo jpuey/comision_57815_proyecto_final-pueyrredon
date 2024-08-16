@@ -1,5 +1,7 @@
 {% extends 'centromed/base.html' %}
 
+{% load static %}
+
 {% block titulo %}Centro Medico | Obras Sociales{% endblock %}
 
 
@@ -7,11 +9,26 @@
     <h1>PORTAL OBRAS SOCIALES</h1>
 
     <h2>Aca encontraras listadas nuestras Obras Sociales</h2>
-    <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UNA OBRA SOCIAL: <a class="btn btn-primary" href="{% url 'osociales_crear'%}" role="button">Agregar</a></p>
+    <p><a class="btn btn-primary" href="{% url 'osociales_crear'%}" role="button">AGREGAR OBRA SOCIAL</a></p>
+
 
     {% for obrasocial in obras_sociales %}
-        <p>Obra Social: {{obrasocial.nombre}} | Plan: {{obrasocial.plan}} <a class="btn btn-primary" href="{% url 'osociales_update' obrasocial.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'osociales_delete' obrasocial.pk %}" role="button">Eliminar</a> <a class="btn btn-warning" href="{% url 'osociales_detail' obrasocial.pk %}" role="button">Mas Informacion</a></p>
+    <div class="card"  style="width: 18rem;">
+        <img src="{% static 'centromed/assets/img/portfolio/obra_social.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Nuestro Profesional</h5>
+        <p class="card-text">Obra Social: {{obrasocial.nombre}} | Plan: {{obrasocial.plan}} .</p>
+        {% if request.user.is_superuser %}
+            <a class="btn btn-primary" href="{% url 'osociales_update' obrasocial.pk %}" role="button">Editar</a>  
+            <a class="btn btn-danger" href="{% url 'osociales_delete' obrasocial.pk %}" role="button">Eliminar</a>
+            <a class="btn btn-warning" href="{% url 'osociales_detail' obrasocial.pk %}" role="button">Mas Informacion</a>
+        {% else %}
+            <a class="btn btn-warning" href="{% url 'osociales_detail' obrasocial.pk %}" role="button">Mas Informacion</a>
+        {% endif %}
+        </div>
+    </div>
     {% endfor %}
+
 
 
 {% endblock %}

@@ -1,5 +1,7 @@
 {% extends 'centromed/base.html' %}
 
+{% load static %}
+
 {% block titulo %}Centro Medico | Pacientes{% endblock %}
 
 
@@ -7,11 +9,24 @@
     <h2>PORTAL PACIENTES</h2>
 
     <h3>Aca encontraras listado nuestros Pacientes</h3>
-    <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN PACIENTE: <a class="btn btn-primary" href="{% url 'paciente_crear'%}" role="button">Agregar</a></p>
+    <p><a class="btn btn-primary" href="{% url 'paciente_crear'%}" role="button">AGREGAR PACIENTE</a></p>
 
 
     {% for paciente in pacientes %}
-        <p>Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}} <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a> <a class="btn btn-danger" href="{% url 'paciente_delete' paciente.pk %}" role="button">Eliminar</a> <a class="btn btn-warning" href="{% url 'paciente_detail' paciente.pk %}" role="button">Mas Informacion</a> </p>
+    <div class="card"  style="width: 18rem;">
+        <img src="{% static 'centromed/assets/img/portfolio/paciente.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Nuestro Paciente</h5>
+        <p class="card-text">Paciente: {{paciente.nombre}} | Apellido: {{paciente.apellido}}</p>
+        {% if request.user.is_superuser %}
+            <a class="btn btn-primary" href="{% url 'paciente_update' paciente.pk %}" role="button">Editar</a>  
+            <a class="btn btn-danger" href="{% url 'paciente_delete' paciente.pk %}" role="button">Eliminar</a>
+            <a class="btn btn-warning" href="{% url 'paciente_detail' paciente.pk %}" role="button">Mas Informacion</a>
+        {% else %}
+            <a class="btn btn-warning" href="{% url 'paciente_detail' paciente.pk %}" role="button">Mas Informacion</a>
+        {% endif %}
+        </div>
+    </div>
     {% endfor %}
 
 

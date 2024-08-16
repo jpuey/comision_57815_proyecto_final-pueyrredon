@@ -11,8 +11,9 @@
 
     <h3>Aca encontraras listado Nuestro Staff</h3>
     {% if request.user.is_superuser %}
-        <p>APRETE AQUI PARA AGREGAR LOS DATOS DE UN MEDICO: <a class="btn btn-primary" href="{% url 'medico_crear'%}" role="button">AGREGAR MEDICO</a></p>
+        <p><a class="btn btn-primary" href="{% url 'medico_crear'%}" role="button">AGREGAR MEDICO</a></p>
     {% endif %}
+    
 
     {% for medico in medicos %}
     <div class="card"  style="width: 18rem;">
