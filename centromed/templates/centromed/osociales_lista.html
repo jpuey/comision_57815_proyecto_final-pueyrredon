@@ -9,7 +9,9 @@
     <h1>PORTAL OBRAS SOCIALES</h1>
 
     <h2>Aca encontraras listadas nuestras Obras Sociales</h2>
+    {% if request.user.is_superuser %}
     <p><a class="btn btn-primary" href="{% url 'osociales_crear'%}" role="button">AGREGAR OBRA SOCIAL</a></p>
+    {% endif %}
 
 
     {% for obrasocial in obras_sociales %}

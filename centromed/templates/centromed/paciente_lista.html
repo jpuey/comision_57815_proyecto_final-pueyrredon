@@ -9,7 +9,9 @@
     <h2>PORTAL PACIENTES</h2>
 
     <h3>Aca encontraras listado nuestros Pacientes</h3>
+    {% if request.user.is_superuser %}
     <p><a class="btn btn-primary" href="{% url 'paciente_crear'%}" role="button">AGREGAR PACIENTE</a></p>
+    {% endif %}
 
 
     {% for paciente in pacientes %}
